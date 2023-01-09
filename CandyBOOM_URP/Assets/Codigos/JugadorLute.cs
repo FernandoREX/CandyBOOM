@@ -88,7 +88,6 @@ public class JugadorLute : MonoBehaviour
         Yrotacion = Mathf.Clamp(Yrotacion, -15f, 4f);
         Xrotacion += HMouse;
         transform.Rotate(Yrotacion, Xrotacion , 0f);
-        cam.localRotation = Quaternion.Euler(Yrotacion, Xrotacion, 0f);
     }
 
     void Movimiento()
