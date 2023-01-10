@@ -25,6 +25,7 @@ public class JugadorLute : MonoBehaviour
 
     public float VelocidadHorizontal;
     public float VelocidadVertical;
+    public float VelMov = 10f;
 
     public GameObject recargarSonido;
     GameObject nuevoSonido;
@@ -78,6 +79,8 @@ public class JugadorLute : MonoBehaviour
         LookMouse();
         //Movimiento del personaje
         Movimiento();
+
+        
     }
     void LookMouse()
     {
@@ -85,19 +88,22 @@ public class JugadorLute : MonoBehaviour
         VMouse = Input.GetAxis("Mouse Y") * VelocidadVertical * Time.deltaTime;
 
         Yrotacion -= VMouse;
-        Yrotacion = Mathf.Clamp(Yrotacion, -15f, 4f);
         Xrotacion += HMouse;
-        transform.Rotate(Yrotacion, Xrotacion , 0f);
+
+        cam.transform.eulerAngles += new Vector3(Yrotacion,Xrotacion,0);
     }
 
     void Movimiento()
     {
-        X = Input.GetAxis("Horizontal");
-        Y = Input.GetAxis("Vertical");
-         
-        transform.Translate(X * Time.deltaTime * VelocidadMovimiento,
-            0,
-            Y * Time.deltaTime * VelocidadMovimiento);
+        float hor = Input.GetAxisRaw("Horizontal");
+        float ver = Input.GetAxisRaw("Vertical");
+        if(hor != 0 || ver != 0)
+        {
+            Vector3 Dir = ((transform.forward * ver + transform.right * hor).normalized);
+            RB.velocity = Dir * VelMov;
+        }else{
+            RB.velocity = Vector3.zero;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -105,6 +111,10 @@ public class JugadorLute : MonoBehaviour
         if(collision.collider.tag == "ZombieGalleta")
         {
             PuntosVida -= 10;
+        }
+        if(collision.collider.tag == "OBS")
+        {
+            RB.velocity = Vector3.zero;
         }
     }
 }
