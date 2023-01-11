@@ -308,7 +308,7 @@ PrefabInstance:
     - target: {fileID: 3989755637117831280, guid: c36a18ead160611409544868e47cae4f,
         type: 3}
       propertyPath: m_Constraints
-      value: 112
+      value: 116
       objectReference: {fileID: 0}
     - target: {fileID: 3989755637117831280, guid: c36a18ead160611409544868e47cae4f,
         type: 3}
@@ -385,6 +385,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3989755637117831286, guid: c36a18ead160611409544868e47cae4f,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1661348971}
     - target: {fileID: 3989755637117831286, guid: c36a18ead160611409544868e47cae4f,
         type: 3}
       propertyPath: VelocidadMovimiento
@@ -730,6 +735,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbad323c6e52eda468d29e603158e919, type: 3}
+--- !u!4 &1661348971 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3989755637117831283, guid: c36a18ead160611409544868e47cae4f,
+    type: 3}
+  m_PrefabInstance: {fileID: 463306786}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &721631279306833625
 PrefabInstance:
   m_ObjectHideFlags: 0

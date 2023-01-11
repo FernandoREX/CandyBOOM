@@ -89,8 +89,14 @@ public class JugadorLute : MonoBehaviour
 
         Yrotacion -= VMouse;
         Xrotacion += HMouse;
+        
+        if(HMouse != 0){
+            transform.Rotate(0, HMouse, 0);
+        }
+        if(VMouse != 0){
+            cam.transform.Rotate(-VMouse, 0, 0);
+        }
 
-        cam.transform.eulerAngles += new Vector3(Yrotacion,Xrotacion,0);
     }
 
     void Movimiento()
