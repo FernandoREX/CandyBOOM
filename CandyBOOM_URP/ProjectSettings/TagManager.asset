@@ -9,6 +9,7 @@ TagManager:
   - MuerteG
   - Municion
   - OBS
+  - PanZombie
   layers:
   - Default
   - TransparentFX

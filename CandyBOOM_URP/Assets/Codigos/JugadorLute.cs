@@ -114,6 +114,10 @@ public class JugadorLute : MonoBehaviour
         {
             PuntosVida -= 10;
         }
+        if(collision.collider.tag == "PanZombie")
+        {
+            PuntosVida -= 25;
+        }
         if(collision.collider.tag == "OBS")
         {
             RB.velocity = Vector3.zero;
