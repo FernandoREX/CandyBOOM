@@ -88,15 +88,11 @@ public class JugadorLute : MonoBehaviour
         VMouse = Input.GetAxis("Mouse Y") * VelocidadVertical * Time.deltaTime;
 
         Yrotacion -= VMouse;
-        Xrotacion += HMouse;
-        
-        if(HMouse != 0){
-            transform.Rotate(0, HMouse, 0);
-        }
-        if(VMouse != 0){
-            cam.transform.Rotate(-VMouse, 0, 0);
-        }
+        Xrotacion += HMouse; 
 
+        Yrotacion = Mathf.Clamp(Yrotacion, -20f, 10f);
+        transform.Rotate(0f, 0f, HMouse);
+        cam.localRotation = Quaternion.Euler(Yrotacion, Xrotacion, 0f);
     }
 
     void Movimiento()
