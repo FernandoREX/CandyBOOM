@@ -59,7 +59,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 64
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!82 &1883889972568966964
 AudioSource:
@@ -165,7 +165,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1649867925452618339}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: c197af4159260b84db8be4923f450ba3, type: 2}
   m_CullingMode: 0
@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2933a8c94c591e4d9a87e32924ed6f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PuntosVida: 170
+  PuntosVida: 40
   Anim: {fileID: 1883889972568966952}
   sonidoMuerte: {fileID: 3480810072523282787, guid: a8fce3bc6e0ad0a42a09052efab0a410,
     type: 3}
@@ -206,8 +206,8 @@ NavMeshAgent:
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 2
+  m_AngularSpeed: 7.79
+  m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -223,12 +223,12 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1649867925452618339}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 46.113186
+  m_Height: 92.22638
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -13.667489, z: -5.433429}
 --- !u!1 &2147881718316506731
 GameObject:
   m_ObjectHideFlags: 0

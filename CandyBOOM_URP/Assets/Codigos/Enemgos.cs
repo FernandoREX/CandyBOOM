@@ -13,6 +13,7 @@ public class Enemgos : MonoBehaviour
     CapsuleCollider Colicion;
     GameObject[] jugador;
     NavMeshAgent enemigo;
+    public Rigidbody RB;
 
     float tiempo = 0f;
 
@@ -35,19 +36,23 @@ public class Enemgos : MonoBehaviour
         follow_player();
         Anim.SetTrigger("GalletaZombie1");
         Anim.SetTrigger("Pan");
+        Debug.Log("NO Me mori" + PuntosVida);
         if (PuntosVida < 1)
         {
+            Colicion.isTrigger = false;
+            enemigo.enabled = false;
             tiempo += Time.deltaTime;
             Anim.SetTrigger("MuerteG");
             Anim.SetTrigger("PanMuerte");
             this.gameObject.tag = "MuerteG";
             Audio.mute = true;
-            if (tiempo < 0.1)
+            if (tiempo == 1)
             {
                 NuevoS = Instantiate(sonidoMuerte, this.gameObject.transform.position, this.gameObject.transform.rotation);
             }
             if(tiempo > 5)
             {
+                RB.constraints = RigidbodyConstraints.FreezePositionY;
                 Colicion.isTrigger = true;
             }
             if (tiempo > 10)
@@ -58,9 +63,9 @@ public class Enemgos : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        if (collision.collider.tag == "Bala")
+        if (collision.GetComponent<Collider>().tag == "Bala")
         {
             Debug.Log("Me Dispararon Ahhhhhh");
             PuntosVida -= 10;
