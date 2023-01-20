@@ -108,13 +108,13 @@ public class JugadorLute : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        if(collision.GetComponent<Collider>().tag == "ZombieGalleta")
+        if(collision.gameObject.tag == "ZombieGalleta")
         {
             PuntosVida -= 5;
         }
-        if(collision.GetComponent<Collider>().tag == "PanZombie")
+        if(collision.gameObject.tag == "PanZombie")
         {
             PuntosVida -= 10;
         }

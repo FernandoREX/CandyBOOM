@@ -13,9 +13,9 @@ public class Enemgos : MonoBehaviour
     CapsuleCollider Colicion;
     GameObject[] jugador;
     NavMeshAgent enemigo;
-    public Rigidbody RB;
 
     float tiempo = 0f;
+    bool Existe = false;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +36,9 @@ public class Enemgos : MonoBehaviour
         follow_player();
         Anim.SetTrigger("GalletaZombie1");
         Anim.SetTrigger("Pan");
-        Debug.Log("NO Me mori" + PuntosVida);
+
+        Vector3 Direccion = (enemigo.destination - transform.position).normalized;
+        
         if (PuntosVida < 1)
         {
             Colicion.isTrigger = false;
@@ -46,14 +48,16 @@ public class Enemgos : MonoBehaviour
             Anim.SetTrigger("PanMuerte");
             this.gameObject.tag = "MuerteG";
             Audio.mute = true;
-            if (tiempo == 1)
+            if (!Existe)
             {
                 NuevoS = Instantiate(sonidoMuerte, this.gameObject.transform.position, this.gameObject.transform.rotation);
+                Existe = true;
             }
             if(tiempo > 5)
             {
-                RB.constraints = RigidbodyConstraints.FreezePositionY;
                 Colicion.isTrigger = true;
+                Vector3 gravedad = new Vector3(0, -9.81f * Time.deltaTime, 0);
+                transform.Translate(gravedad, Space.World);
             }
             if (tiempo > 10)
             {
@@ -63,11 +67,10 @@ public class Enemgos : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (collision.GetComponent<Collider>().tag == "Bala")
+        if (collision.gameObject.tag == "Bala")
         {
-            Debug.Log("Me Dispararon Ahhhhhh");
             PuntosVida -= 10;
         }
     }

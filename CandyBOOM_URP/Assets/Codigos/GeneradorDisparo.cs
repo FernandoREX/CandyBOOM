@@ -15,6 +15,10 @@ public class GeneradorDisparo : MonoBehaviour
     public Text MunicionDis;
     public Text disparosDis;
 
+    public GameObject Arma1;
+    public GameObject Arma2;
+    public GameObject Arma3;
+
     int disparos = 0;
     float tiempo = 0f;
     float tiempoR = 0f;
@@ -53,6 +57,33 @@ public class GeneradorDisparo : MonoBehaviour
             disparos = 0;
             plomo = res;
         }
+        if(Input.GetKeyDown(KeyCode.Alpha1)){
+            TipoArma = 0;
+            Arma1.SetActive(true);
+            Arma2.SetActive(false);
+            Arma3.SetActive(false);
+            MunicionCantidad = 15;
+            plomo = 15;
+        }
+        if(Input.GetKeyDown(KeyCode.Alpha2)){
+            Debug.Log("Aprete 2");
+            TipoArma = 1;
+            Arma1.SetActive(false);
+            Arma2.SetActive(true);
+            Arma3.SetActive(false);
+            MunicionCantidad = 18;
+            plomo = 18;
+        }
+        if(Input.GetKeyDown(KeyCode.Alpha3)){
+            Debug.Log("Aprete 3");
+            TipoArma = 2;
+            Arma1.SetActive(false);
+            Arma2.SetActive(false);
+            Arma3.SetActive(true);
+            MunicionCantidad = 30;
+            plomo = 30;
+
+        }
         if(disparos < MunicionCantidad && MunicionDisponible > 0)
         {
             if (Input.GetButtonDown("Fire1") && tiempoR > 2 && TipoArma == 0)
@@ -88,7 +119,7 @@ public class GeneradorDisparo : MonoBehaviour
             tiempo = 0;
         }
         MunicionDis.text = MunicionCantidad + "/" + plomo;
-        disparosDis.text = "Munición: " + MunicionDisponible;
+        disparosDis.text = "Municiï¿½n: " + MunicionDisponible;
 
     }
 
