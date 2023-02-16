@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3989755637117831286}
   m_Layer: 0
   m_Name: JugadorPricipal
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,13 +58,13 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3989755637117831282}
   serializedVersion: 2
-  m_Mass: 5
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 23
+  m_Drag: 1
+  m_AngularDrag: 2.39
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 2
-  m_Constraints: 112
+  m_Interpolate: 0
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &3989755637117831286
 MonoBehaviour:
@@ -78,8 +78,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e715c87703ba09c4db3890936c7c4018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VelocidadMovimiento: 15
-  cam: {fileID: 3989755639156179064}
+  VelocidadMovimiento: 9
+  cam: {fileID: 3989755637117831283}
   VelocidadHorizontal: 60
   VelocidadVertical: 30
   VelMov: 10
@@ -166,7 +166,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Munici\xF3n: 9999 "
+  m_Text: 'Municion: 9999 '
 --- !u!1 &3989755637223960242
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,6 +298,9 @@ MonoBehaviour:
   MunicionDisponible: 120
   MunicionDis: {fileID: 3989755637474873737}
   disparosDis: {fileID: 3989755637141187404}
+  Arma1: {fileID: 4296183686091325953}
+  Arma2: {fileID: 0}
+  Arma3: {fileID: 0}
   MunicionPre: {fileID: 5753263772719389818, guid: cfdc6ebee3fd5064f8970a3cb5ba9f07,
     type: 3}
 --- !u!65 &3989755637245105104
@@ -504,6 +507,7 @@ RectTransform:
   - {fileID: 3989755637474873736}
   - {fileID: 3989755638274893110}
   - {fileID: 3989755637141187407}
+  - {fileID: 8333709639381197571}
   m_Father: {fileID: 3989755637117831283}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -850,6 +854,86 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!1 &6145518208171187376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8333709639381197571}
+  - component: {fileID: 4893015938349772866}
+  - component: {fileID: 2053935430353562444}
+  m_Layer: 5
+  m_Name: Puntaje
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8333709639381197571
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6145518208171187376}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 6.5626e-11}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3989755638192428142}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 266.2306, y: 149}
+  m_SizeDelta: {x: 227.8866, y: 47.499}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &4893015938349772866
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6145518208171187376}
+  m_CullTransparentMesh: 1
+--- !u!114 &2053935430353562444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6145518208171187376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.023529412, g: 0.7490196, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 665245d2455efda49ab2a921c2bdbeb3, type: 3}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 100
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Tiempo: 9999 '
 --- !u!1001 &3989755637188820816
 PrefabInstance:
   m_ObjectHideFlags: 0
